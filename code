@@ -1,0 +1,46 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    long long mat[1001][1001], i, j, k, n, m;
+    
+    cin >> n >> m;
+    
+    for(i = 1; i <= n; i++)
+    {
+        for(j = 1; j <= m; j++)
+        {
+            cin >> mat[i][j];
+        }
+    }
+    
+    for(i = 1; i <= n; i++)
+    {
+        for(j = 1; j <= m; j++)
+        {
+            for(k = j + 1; k <= m; k++)
+            {
+            if(mat[i][j] > mat[i][k])
+            {
+                int aux = mat[i][j];
+                mat[i][j] = mat[i][k];
+                mat[i][k] = aux;
+            }
+            }
+        }
+    }
+    
+    for(i = 1; i <= n; i++)
+    {
+        for(j = 1; j <= m; j++)
+        {
+            cout << mat[i][j] << " ";
+        }
+        
+        cout << '\n';
+    }
+
+    return 0;
+}
